@@ -1,0 +1,35 @@
+@charset "utf-8";
+header
+{
+    position: relative;
+    text-align: center;
+    color: black;
+}
+header img
+{
+    width : 100%;
+}
+header h1
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
+main ul li a
+{
+    transition: color 1s;
+}
+.answer_button, .answer_button_off, .answer_button_add
+{
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
