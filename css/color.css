@@ -47,3 +47,13 @@ main ul li h2
 {
     background-color: #97b0df;
 }
+.question
+{
+    background-color: #B67C6C;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+.question:hover
+{
+    background-color: #97b0df;
+}

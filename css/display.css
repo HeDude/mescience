@@ -17,11 +17,19 @@ header h1
     transform: translate(-50%, -50%);
     opacity: 0.8;
 }
+header h3
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
 main ul li a
 {
     transition: color 1s;
 }
-.answer_button, .answer_button_off, .answer_button_add
+.answer_button, .answer_button_off, .answer_button_add, .question
 {
     border: none;
     color: white;

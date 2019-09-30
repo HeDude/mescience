@@ -13,12 +13,21 @@
 <body>
 <?php
 
-$title_url = htmlspecialchars( $_GET["title"] );
-$title = "Oeps, er is iets mis met de url!";
-$main = "            <li><h2>Pas de url aan!</h2></li>" . PHP_EOL;
-
-if ( is_string( $title_url ) && !empty( $title_url ) )
+if ( empty( $_GET ) )
 {
+    $title = "Kies een van de geselecteerde beginvragen!";
+    $main  = '            <li class="question"><a href="?title=what_is_the_truth"><h2>Wat is de waarheid?</h2></a></li>' . PHP_EOL;
+    $main .= '            <li class="question"><a href="?title=how_can_you_make_peace"><h2>Hoe kan ik vrede brengen?</h2></a></li>' . PHP_EOL;
+    $main .= '            <li class="question"><a href="?title=how_do_you_become_happy"><h2>Hoe kun je gelukkig worden?</h2></a></li>' . PHP_EOL;
+}
+elseif ( empty( $_GET["title"] ) )
+{
+   $title = "Oeps, er is iets mis met de url!";
+   $main = "            <li><h2>Pas de url aan!</h2></li>" . PHP_EOL;
+}
+else
+{
+    $title_url = htmlspecialchars( $_GET["title"] );
     $api = file_get_contents( "https://api.hedude.com/question/json/nl?title=" . $title_url );
 
     $answers = json_decode
