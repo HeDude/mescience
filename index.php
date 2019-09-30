@@ -16,7 +16,8 @@
 if ( empty( $_GET ) )
 {
     $title = "Kies een van de geselecteerde beginvragen!";
-    $main  = '            <li class="question"><a href="?title=what_is_the_truth"><h2>Wat is de waarheid?</h2></a></li>' . PHP_EOL;
+    $main  = '            <li class="random_question"><a href="?title=random"><h2>Willekeurige vraag graag!</h2></a></li>' . PHP_EOL;
+    $main .= '            <li class="question"><a href="?title=what_is_the_truth"><h2>Wat is de waarheid?</h2></a></li>' . PHP_EOL;
     $main .= '            <li class="question"><a href="?title=how_can_you_make_peace"><h2>Hoe kan ik vrede brengen?</h2></a></li>' . PHP_EOL;
     $main .= '            <li class="question"><a href="?title=how_do_you_become_happy"><h2>Hoe kun je gelukkig worden?</h2></a></li>' . PHP_EOL;
 }
@@ -27,8 +28,14 @@ elseif ( empty( $_GET["title"] ) )
 }
 else
 {
-    $title_url = htmlspecialchars( $_GET["title"] );
-    $api = file_get_contents( "https://api.hedude.com/question/json/nl?title=" . $title_url );
+    if ( $_GET["title"] == "random")
+    {
+        $api = file_get_contents( "https://api.hedude.com/question/json/nl" );
+    }
+    else
+    {
+        $api = file_get_contents( "https://api.hedude.com/question/json/nl?title=" . htmlspecialchars( $_GET["title"] ) );
+    }
 
     $answers = json_decode
     (
@@ -71,7 +78,7 @@ else
             }
             $main .= '</li>' . PHP_EOL;
         }
-        $main .= '            <li class="answer_button_add"><a href="mailto:oracle@leerparadijs.nl?SUBJECT='. $title_url . '&BODY=Beste%20Oracle,%0DGraag%20het%20volgende%20antwoord%20toevoegen:">Voeg jouw antwoord toe!</a></li>' . PHP_EOL;
+        $main .= '            <li class="answer_button_add"><a href="mailto:oracle@leerparadijs.nl?SUBJECT='. urlencode( $title ) . '&BODY=Beste%20Oracle,%0DGraag%20het%20volgende%20antwoord%20toevoegen:">Voeg jouw antwoord toe!</a></li>' . PHP_EOL;
     }
 }
 echo '    <header>' . PHP_EOL;
