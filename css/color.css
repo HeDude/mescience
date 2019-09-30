@@ -12,6 +12,10 @@ main ul li a:hover
 {
     color: #FFFFFF;
 }
+main ul li h2
+{
+    color: #1c325b;
+}
 .answer_button
 {
     background-color: #B67C6C;

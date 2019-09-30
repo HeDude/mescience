@@ -42,12 +42,16 @@ $answers = json_decode
     ),
     JSON_OBJECT_AS_ARRAY
 );
+if ( empty ( $answers ) )
+{
+    echo '    <header>' . PHP_EOL;
+    echo '        <img src="image/socrates.svg" alt="Socrates">' . PHP_EOL;
+    echo '        <h1>Je hebt mijn vragendoolhof verlaten</h1>' . PHP_EOL;
+    echo '    </header>' . PHP_EOL;
+    return false;
+}
 
 $question = new Question( $answers[ "title" ][ "title" ] );
-foreach( $answers[ "title" ][ "choice" ] as $choice )
-{
-    $question->set_answer( $choice[ "answer" ], $choice[ "response" ] );
-}
 $title = $question->get_text();
 
 echo '    <header>' . PHP_EOL;
@@ -56,6 +60,18 @@ echo '        <h1>' . $title . '</h1>' . PHP_EOL;
 echo '    </header>' . PHP_EOL;
 echo '    <main>' . PHP_EOL;
 echo '        <ul>' . PHP_EOL;
+
+if ( $answers[ "title" ][ "choice" ] )
+{
+    foreach( $answers[ "title" ][ "choice" ] as $choice )
+    {
+        $question->set_answer( $choice[ "answer" ], $choice[ "response" ] );
+    }
+}
+else
+{
+    echo '            <li><h2>Gefeliciteerd, ik kan je geen mogelijke antwoorden meer geven!</h2></li>' . PHP_EOL;
+}
 
 foreach ( $question->get_answers() as $answer )
 {
