@@ -15,11 +15,10 @@
 
 if ( empty( $_GET ) )
 {
-    $title = "Kies een van de geselecteerde beginvragen!";
-    $main  = '            <li class="random_question"><a href="?title=random"><h2>Willekeurige vraag graag!</h2></a></li>' . PHP_EOL;
-    $main .= '            <li class="question"><a href="?title=what_is_the_truth"><h2>Wat is de waarheid?</h2></a></li>' . PHP_EOL;
-    $main .= '            <li class="question"><a href="?title=how_can_you_make_peace"><h2>Hoe kan ik vrede brengen?</h2></a></li>' . PHP_EOL;
-    $main .= '            <li class="question"><a href="?title=how_do_you_become_happy"><h2>Hoe kun je gelukkig worden?</h2></a></li>' . PHP_EOL;
+    $title = "Waarover mag ik je wat vragen!";
+    $main  = '            <li class="random_question"><a href="?title=random"><h2>Maakt me niet uit!</h2></a></li>' . PHP_EOL;
+    $main .= '            <li class="question"><a href="?title=on_which_topic_may_i_ask_you_a_question"><h2>Wijsheid over leven</h2></a></li>' . PHP_EOL;
+    $main .= '            <li class="question"><a href="?title=on_which_topic_may_i_ask_you_a_question"><h2>Wijsheid over leren</h2></a></li>' . PHP_EOL;
 }
 elseif ( empty( $_GET["title"] ) )
 {
