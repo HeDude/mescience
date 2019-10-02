@@ -1,3 +1,11 @@
+<?php
+
+if ( empty( $_GET ) )
+{
+    header("Location: ?title=about_what_may_I_ask_you_something");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -12,15 +20,7 @@
 </head>
 <body>
 <?php
-
-if ( empty( $_GET ) )
-{
-    $title = "Waarover mag ik je wat vragen!";
-    $main  = '            <li class="random_question"><a href="?title=random"><h2>Maakt me niet uit!</h2></a></li>' . PHP_EOL;
-    $main .= '            <li class="question"><a href="?title=on_which_topic_may_i_ask_you_a_question"><h2>Wijsheid over leven</h2></a></li>' . PHP_EOL;
-    $main .= '            <li class="question"><a href="?title=on_which_topic_may_i_ask_you_a_question"><h2>Wijsheid over leren</h2></a></li>' . PHP_EOL;
-}
-elseif ( empty( $_GET["title"] ) )
+if ( empty( $_GET["title"] ) )
 {
    $title = "Oeps, er is iets mis met de url!";
    $main = "            <li><h2>Pas de url aan!</h2></li>" . PHP_EOL;
