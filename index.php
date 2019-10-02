@@ -61,7 +61,7 @@ else
         }
         else
         {
-            $main = '            <li><h2>Gefeliciteerd, ik kan je geen mogelijke antwoorden meer geven!</h2></li>' . PHP_EOL;
+            $main = '            <li><h2>Je hebt een uitgang gevonden uit mijn doolhof aan vragen!</h2></li>' . PHP_EOL;
         }
 
         foreach ( $question->get_answers() as $answer )
@@ -69,15 +69,14 @@ else
             $response = urlencode( $answer->get_response() );
             if ( empty( $response ) )
             {
-                $main .= '            <li class="answer_button_off">' . $answer->text;
+                $main .= '            <li class="answer_button_off">' . $answer->text. '</li>' . PHP_EOL;
             }
             else
             {
-                $main .= '            <li class="answer_button"><a href="?title=' . $response . '">' . $answer->text . '</a>';
+                $main .= '            <a href="?title=' . $response . '"><li class="answer_button">' . $answer->text . '</li></a>' . PHP_EOL;
             }
-            $main .= '</li>' . PHP_EOL;
         }
-        $main .= '            <li class="answer_button_add"><a href="mailto:oracle@leerparadijs.nl?SUBJECT='. urlencode( $title ) . '&BODY=Beste%20Oracle,%0DGraag%20het%20volgende%20antwoord%20toevoegen:">Voeg jouw antwoord toe!</a></li>' . PHP_EOL;
+        $main .= '            <a href="mailto:oracle@leerparadijs.nl?SUBJECT='. urlencode( $title ) . '&BODY=Beste%20Oracle,%0DGraag%20het%20volgende%20antwoord%20toevoegen:"><li class="answer_button_add">Voeg jouw antwoord toe!</li></a>' . PHP_EOL;
     }
 }
 echo '    <header>' . PHP_EOL;
