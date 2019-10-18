@@ -1,5 +1,4 @@
 <?php
-
 if ( empty( $_GET ) )
 {
     header("Location: ?title=about_what_may_I_ask_you_something");
