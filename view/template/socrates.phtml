@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Me Science - Wijsheid over innerlijk welbevinding</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="Oracle Science Wellbeing Happiness Question">
+    <meta name="Description" content="Wisdom about wellbeing">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="view/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source%20Code%20Pro' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <img src="view/image/socrates.svg" alt="Socrates">
+        <h1><?php echo $this->question->get_title();?></h1>
+    </header>
+    <main>
+        <ul>
+            <li><h2><?php echo $this->question->get_instruction();?></h2></li>
+<?php
+    foreach ( $this->question->get_answers() as $answer )
+    {
+        if ( $answer->get_response() )
+        {
+?>
+            <a href="?title=<?php echo $answer->get_response();?>&answer=<?php echo strtolower( urlencode( str_replace( " ", "_", $answer->get_text() ) ) );?>&source=<?php echo $this->get_source();?>">
+                <li class="answer_button"><?php echo $answer->get_text();?></li>
+            </a>
+<?php
+        }
+        else
+        {
+?>
+           <li class="answer_button_off"><?php echo $answer->get_text();?></li>
+<?php
+        }
+    }
+?>
+            <a href="mailto:oracle@leerparadijs.nl?SUBJECT=<?php echo urlencode( $this->question->get_title() )?>&BODY=Beste%20Oracle,%0DGraag%20het%20volgende%20antwoord%20toevoegen:">
+                <li class="answer_button_add">Voeg jouw antwoord toe!</li>
+            </a>
+        </ul>
+    </main>
+</body>
+</html>
