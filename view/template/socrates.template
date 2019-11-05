@@ -13,11 +13,11 @@
 <body>
     <header>
         <img src="view/image/socrates.svg" alt="Socrates">
-        <h1><?php echo $title;?></h1>
+        <h1><?php echo $question_html;?></h1>
     </header>
     <main>
         <ul>
-            <?php echo $main;?>
+            <?php echo $answers_html;?>
         </ul>
     </main>
 </body>
