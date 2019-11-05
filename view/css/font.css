@@ -1,0 +1,9 @@
+@charset "utf-8";
+h1
+{
+    font-size: 16px;
+}
+.answer_button, .answer_button_off, .answer_button_add
+{
+    font-size: 14px;
+}
