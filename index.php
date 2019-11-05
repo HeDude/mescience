@@ -1,7 +1,12 @@
 <?php
-if ( empty( $_GET ) )
+if ( !array_key_exists( "title", $_GET ) )
 {
-    header("Location: ?title=about_what_may_I_ask_you_something");
+    $relocate = "Location: ?title=about_what_may_I_ask_you_something";
+    if ( array_key_exists( "source", $_GET ) )
+    {
+        $relocate .= "&source=" . $_GET[ "source" ];
+    }
+    header( $relocate );
     die();
 }
 ?>
