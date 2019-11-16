@@ -1,6 +1,6 @@
 <?php
-require_once( "answer.php"   );
-require_once( "response.php" );
+require_once( MESCIENCE_LIBRARY_PATH . "/answer.php"   );
+require_once( MESCIENCE_LIBRARY_PATH . "/response.php" );
 
 class Question
 {

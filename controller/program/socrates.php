@@ -1,5 +1,5 @@
 <?php
-require_once( "question.php");
+require_once( MESCIENCE_MODULE_PATH . "/question.php");
 
 class Socrates
 {
