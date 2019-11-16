@@ -4,6 +4,15 @@ header h1
     background: #FFFFFF;
     color: #B67C6C;
 }
+main .mescience
+{
+    color: #1c325b;
+}
+main .mescience:hover
+{
+    color: #555555;  
+}
+
 main ul li a
 {
     color: #EEEEEE;

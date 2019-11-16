@@ -13,11 +13,11 @@
 <body>
     <header>
         <img src="view/image/socrates.svg" alt="Socrates">
-        <h1><?php echo $this->question->get_title();?></h1>
+        <h1 class="socrates"><?php echo $this->question->get_title();?></h1>
     </header>
     <main>
         <ul>
-            <li><h2><?php echo $this->question->get_instruction();?></h2></li>
+            <li><h2 class="socrates"><?php echo $this->question->get_instruction();?></h2></li>
 <?php
     foreach ( $this->question->get_answers() as $answer )
     {
