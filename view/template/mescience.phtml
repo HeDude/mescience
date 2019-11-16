@@ -21,16 +21,56 @@
         <h3>Kies je eigen gids</h3>
         <ul>
             <?php
-            foreach( $this->guides as $name => $credentials )
+            foreach( $this->guides as $id => $credentials )
             {
-                if ( array_key_exists( "game", $credentials ) )
+                if ( array_key_exists( "name", $credentials ) )
                 {
-                    echo '            <li><a class="mescience" href="' . $credentials["game"] . '.php">' . $name . '</a></li>';
+                    $name = $credentials[ "name" ];
                 }
                 else
                 {
-                   echo '            <li>' . $name . '</li>';
+                    $name = ucfirst( $id );
                 }
+
+                if ( array_key_exists( "birth", $credentials ) )
+                {
+                    $birth = $credentials[ "birth" ];
+                }
+                else
+                {
+                    $birth = "?";
+                }
+
+                if ( array_key_exists( "death", $credentials ) )
+                {
+                    $death = $credentials[ "death" ];
+                }
+                else
+                {
+                    $death = "?";
+                }
+                $life = '<span>( ' . $birth . ' - ' . $death . ' )</span>';
+
+                if ( array_key_exists( "wikipedia", $credentials ) )
+                {
+                    $wikipedia = '<a href="'. $credentials[ "wikipedia" ] . '" target="blank"><img style="height:28px;" src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg"></a>';
+                }
+                else
+                {
+                    $wikipedia = "";
+                }
+                $life = '<span>( ' . $birth . ' - ' . $death . ' )</span>';
+
+                if ( array_key_exists( "game", $credentials ) )
+                {
+                    $item = '<a class="mescience" href="' . $credentials[ "game" ] . '.php">' . $name . '</a>';
+                }
+                else
+                {
+                    $item = $name;
+                }
+
+                echo '            <li>' . $item . ' <i class="mescience_date">' . $life . '</i>' . $wikipedia . '</li>';
             }
             ?>
         </ul>

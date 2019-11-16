@@ -9,7 +9,12 @@ h3
 }
 main .mescience
 {
-  font-size: 18px;    
+    font-size: 18px;
+}
+i .mescience_date
+{
+    font-style: italic;
+    font-size: 8px;
 }
 .answer_button, .answer_button_off, .answer_button_add
 {
