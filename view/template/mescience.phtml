@@ -12,16 +12,28 @@
 </head>
 <body>
     <header>
-      <hr>
-      <h1>Wijsheid over jezelf</h1>
-      <h2>Speel met wijze mensen</h2>
-      </header>
+        <hr>
+        <h1>Wijsheid over jezelf</h1>
+        <h2>Speel met wijze mensen</h2>
+    </header>
     <main>
-      <hr>
-      <h3>Kies je eigen gids</h3>
-      <ul>
-        <li><a class="mescience" href="maze.php">Socrates</a></li>
-      </ul>
+        <hr>
+        <h3>Kies je eigen gids</h3>
+        <ul>
+            <?php
+            foreach( $this->guides as $name => $credentials )
+            {
+                if ( array_key_exists( "game", $credentials ) )
+                {
+                    echo '            <li><a class="mescience" href="' . $credentials["game"] . '.php">' . $name . '</a></li>';
+                }
+                else
+                {
+                   echo '            <li>' . $name . '</li>';
+                }
+            }
+            ?>
+        </ul>
     </main>
 </body>
 </html>
