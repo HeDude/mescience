@@ -1,6 +1,6 @@
 <?php
-require_once( "controller/answer.php"   );
-require_once( "controller/response.php" );
+require_once( "answer.php"   );
+require_once( "response.php" );
 
 class Question
 {

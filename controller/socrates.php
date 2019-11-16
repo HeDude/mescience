@@ -69,8 +69,11 @@ class Socrates
     {
         if ( empty( $this->get_source() ) || !file_exists( $log_file ) || !is_writable( $log_file ) )
         {
-            session_unset();
-            session_destroy();
+            if ( session_status() != PHP_SESSION_NONE )
+            {
+                session_unset();
+                session_destroy();
+            }
             return false;
         }
         session_start();
