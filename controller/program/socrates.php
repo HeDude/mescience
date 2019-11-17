@@ -1,5 +1,7 @@
 <?php
-require_once( MESCIENCE_MODULE_PATH . "/question.php");
+if ( empty( getenv ( 'MODULE_PATH' ) ) )
+    exit;
+require_once( getenv ( 'MODULE_PATH' ) . "/question.php" );
 
 class Socrates
 {
